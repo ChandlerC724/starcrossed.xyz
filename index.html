@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟STARCROSSED🌟</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <p>hello
+    </p>
+    <div class="outer-border"></div>
+<script src="title-scroll.js" data-start="5000" data-speed="250"></script>
+</body>
+</html>
+<script>var start = 3000;
+    var speed = 250;
+    
+    function getParams(startAttr, speedAttr) {
+        var params = window.document.getElementsByTagName('script');
+    
+        for (var i = 0; i < params.length; i++) {
+            if (params[i].src.indexOf('title-scroll.js') !== -1) {
+                if (params[i].getAttribute(startAttr) !== null && params[i].getAttribute(startAttr) !== "") {
+                    start = params[i].getAttribute(startAttr);
+                }
+    
+                if (params[i].getAttribute(speedAttr) !== null && params[i].getAttribute(speedAttr) !== "") {
+                    speed = params[i].getAttribute(speedAttr);
+                }
+    
+                return;
+            }
+        }
+    }
+    
+    window.onload = function(e) {
+        getParams('data-start', 'data-speed');
+        var title_ref = window.document.getElementsByTagName('title')[0];
+        var title = title_ref.text;
+        var i = 0;
+    
+        setTimeout(function() {
+            setInterval(function () {
+                title_ref.text = title.substr(i, title.length) + "    " + title.substr(0, i);
+                i++;
+    
+                if (i === title.length) {
+                    i = 0;
+                }
+            }, speed);
+        }, start);
+    }
+    </script>

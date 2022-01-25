@@ -1,0 +1,10 @@
+html {
+    height: auto;
+    width: 150px;
+}
+body {
+    background-color: white;
+    border: 40px solid #8e95d3;
+    padding: 100%;
+    margin: 0;
+}
